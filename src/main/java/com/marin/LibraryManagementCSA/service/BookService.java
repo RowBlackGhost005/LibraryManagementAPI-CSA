@@ -12,4 +12,6 @@ public interface BookService {
     List<Book> getBooks();
 
     Book getBookById(int id) throws InvalidBookException;
+
+    Book updateBook(Book book , int id) throws InvalidBookException;
 }
