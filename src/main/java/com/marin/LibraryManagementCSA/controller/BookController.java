@@ -36,6 +36,11 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
+    @PutMapping("/{id}")
+    public Book updateBook(@RequestBody Book book , @PathVariable int id) throws InvalidBookException{
+        return bookService.updateBook(book , id);
+    }
+
     @ExceptionHandler(DataTruncation.class)
     public ResponseEntity<String> handleDataTruncation(DataTruncation ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error trying to process book data:\n" + ex.getMessage().substring(0 , ex.getMessage().length() - 8));
@@ -43,6 +48,7 @@ public class BookController {
 
     @ExceptionHandler(PropertyValueException.class)
     public ResponseEntity<String> handlePropertyValue(PropertyValueException ex) {
+        ex.printStackTrace(System.err);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Validation error, check if all attributes are filled in correctly");
     }
 

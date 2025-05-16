@@ -34,5 +34,28 @@ public class BookServiceImp implements BookService {
         return (List<Book>) bookRepository.findAll();
     }
 
+    @Override
+    public Book updateBook(Book book , int id) throws InvalidBookException{
+        Book bookDB = getBookById(id);
+
+        if(book.getAuthor() != null){
+            bookDB.setAuthor(book.getAuthor());
+        }
+
+        if(book.getTitle() != null){
+            bookDB.setTitle(book.getTitle());
+        }
+
+        if(book.getPublishedDate() != null){
+            bookDB.setPublishedDate(book.getPublishedDate());
+        }
+
+        if(book.getIsbn() != null){
+            bookDB.setIsbn(book.getIsbn());
+        }
+
+        return bookRepository.save(bookDB);
+    }
+
 
 }
