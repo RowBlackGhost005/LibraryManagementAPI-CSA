@@ -23,7 +23,6 @@ public class Book {
     private String author;
 
     @Column(nullable = false , length = 13)
-
     private String isbn;
 
     @Column(nullable = false)

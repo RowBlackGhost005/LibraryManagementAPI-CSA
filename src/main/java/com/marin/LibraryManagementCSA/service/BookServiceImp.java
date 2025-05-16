@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.sql.DataTruncation;
+import java.util.List;
 
 @Service
 public class BookServiceImp implements BookService {
@@ -20,6 +21,17 @@ public class BookServiceImp implements BookService {
     @Override
     public Book saveBook(Book book) {
         return bookRepository.save(book);
+    }
+
+    @Override
+    public Book getBookById(int id) throws InvalidBookException{
+        return bookRepository.findById(id).orElseThrow(() -> new InvalidBookException("There is no book with that ID"));
+
+    }
+
+    @Override
+    public List<Book> getBooks() {
+        return (List<Book>) bookRepository.findAll();
     }
 
 
