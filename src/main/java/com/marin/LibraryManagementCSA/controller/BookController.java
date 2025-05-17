@@ -41,6 +41,12 @@ public class BookController {
         return bookService.updateBook(book , id);
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteBook(@PathVariable int id){
+        bookService.deleteBook(id);
+        return "Book with ID " + id + " has been deleted";
+    }
+
     @ExceptionHandler(DataTruncation.class)
     public ResponseEntity<String> handleDataTruncation(DataTruncation ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error trying to process book data:\n" + ex.getMessage().substring(0 , ex.getMessage().length() - 8));
