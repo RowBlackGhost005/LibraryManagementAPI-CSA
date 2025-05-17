@@ -4,6 +4,8 @@ import com.marin.LibraryManagementCSA.entity.Book;
 import com.marin.LibraryManagementCSA.exceptions.InvalidBookException;
 import com.marin.LibraryManagementCSA.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -54,12 +56,26 @@ public class BookServiceImp implements BookService {
             bookDB.setIsbn(book.getIsbn());
         }
 
+        if(book.getGenre() != null){
+            bookDB.setGenre(book.getGenre());
+        }
+
         return bookRepository.save(bookDB);
     }
 
     @Override
     public void deleteBook(int id){
         bookRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Book> getBookAuthor(String author){
+        return bookRepository.getBooksByAuthor(author);
+    }
+
+    @Override
+    public List<Book> getBookTitle(String title){
+        return bookRepository.getBooksByTitle(title);
     }
 
 }
