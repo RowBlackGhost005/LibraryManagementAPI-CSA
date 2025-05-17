@@ -25,10 +25,20 @@ public class Book {
     @Column(nullable = false , length = 13)
     private String isbn;
 
+    @Column(nullable = false , length = 32)
+    private String genre;
+
     @Column(nullable = false)
     private Date publishedDate;
 
     public Book() {
+    }
+
+    public Book(String title, String author, String isbn, Date publishedDate) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.publishedDate = publishedDate;
     }
 
     public int getId() {
@@ -69,5 +79,13 @@ public class Book {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }
