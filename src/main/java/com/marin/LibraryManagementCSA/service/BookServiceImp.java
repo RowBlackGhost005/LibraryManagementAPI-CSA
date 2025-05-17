@@ -57,5 +57,9 @@ public class BookServiceImp implements BookService {
         return bookRepository.save(bookDB);
     }
 
+    @Override
+    public void deleteBook(int id){
+        bookRepository.deleteById(id);
+    }
 
 }

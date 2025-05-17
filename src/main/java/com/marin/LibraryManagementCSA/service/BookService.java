@@ -14,4 +14,6 @@ public interface BookService {
     Book getBookById(int id) throws InvalidBookException;
 
     Book updateBook(Book book , int id) throws InvalidBookException;
+
+    void deleteBook(int id);
 }
