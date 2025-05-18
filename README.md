@@ -1,13 +1,13 @@
 # Library Management System API
 A small REST API developed in Spring Boot to register books.
 
-# Set up the project
+# How to Execute
 ### Requirements:
 - Java 21+
 - Maven
 - MySQL
 
-###Steps to execute
+### Steps to execute
 1. Clone the repo
 2. Go to your MySQL and create the database with the name `LibraryCatalogCSA`
 3. Integrate your database (Go to src/main/resources/application.properties) and change your database credentials as follows (Remove #yourUser/#yourPass):
