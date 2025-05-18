@@ -11,8 +11,10 @@ A small REST API developed in Spring Boot to register books.
 1. Clone the repo
 2. Go to your MySQL and create the database with the name `LibraryCatalogCSA`
 3. Integrate your database (Go to src/main/resources/application.properties) and change your database credentials as follows (Remove #yourUser/#yourPass):
-		 spring.datasource.username=#yourUser
-		 spring.datasource.password=#yourPass
+```
+spring.datasource.username=#yourUser
+spring.datasource.password=#yourPass
+```
 4. Execute the main file `LibraryManagementCsaApplication` under src with your IDE to start the API.
 5. Wait till the embeeded tomcat server initializes.
 
